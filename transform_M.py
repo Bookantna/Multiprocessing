@@ -13,8 +13,9 @@ Programmer Beast Mode Spotify playlist: https://open.spotify.com/playlist/4Akns5
 from image import Image
 import numpy as np
 import concurrent.futures as cf
-from numba import jit
+from multiprocessing import cpu_count
 from tqdm import tqdm
+import psutil
 
 
 def brighten(image, factor):
@@ -80,6 +81,7 @@ def apply_kernel(image, kernel):
                         total += image.array[x_i, y_i, c] * kernel_val
                 new_image.array[x, y, c]  = total
     return new_image
+
 def combine_images(image1, image2):
 
     # let's combine two images using the squared sum of squares: value = sqrt(value_1**2, value_2**2)
@@ -92,6 +94,38 @@ def combine_images(image1, image2):
             for c in range(num_channels):
                 new_image.array[x, y, c] = ((image1.array[x, y, c]**2) + (image2.array[x, y, c]**2))**0.5
     return new_image
+
+def parse_image(image, func, kernel):
+    x_all, y_all, num_all = image.array.shape
+    new_image = Image(x_pixels=x_all, y_pixels=y_all, num_channels=num_all)
+    cores_num = 9
+    #psutil.cpu_count(logical=False)
+    #  y_Percore
+    y_pc = y_all // cores_num
+
+    # x_remain, y_remain, num_remain
+    y_rem = y_all % cores_num
+
+    parse_image = [Image(x_pixels=x_all, y_pixels=y_pc, num_channels=num_all) for _ in range(cores_num)]
+
+    # store image to parsed blank image
+    for core in range(cores_num):
+        for i in range(x_all):
+            for j in range(y_pc):
+                for k in range(num_all):
+                    parse_image[core].array[i, j, k] = image.array[i , j + core * y_pc, k]
+
+    with cf.ProcessPoolExecutor() as executor:
+        filtered_images = list(executor.map(func, parse_image, [kernel] * cores_num))
+
+    for core in range(cores_num):
+        for i in range(x_all):
+            for j in range(y_pc):
+                for k in range(num_all):
+                    new_image.array[i , j + core * y_pc, k] = filtered_images[core].array[i, j, k]
+
+    return new_image
+
 
 def guassian_blur(image, kernel_size):
     x_pixels, y_pixels, num_channels = image.array.shape

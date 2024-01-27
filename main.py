@@ -20,7 +20,7 @@ def main():
         result.write_image("blur_lake2.png")
     et = time.perf_counter()
     print(f"Used time Multi:{et-st}.")
-    '''
+    
     n = 50
     lake = [Image(filename="lake.png")]*n
     kernel = [3]*n
@@ -45,7 +45,12 @@ def main():
 
     et = time.perf_counter()
     print(f"Used time Thread:{et-st}.")
-
+    '''
+    lake = Image(filename="lake.png")
+    new = parse_image(lake, guassian_blur,1)
+    new.write_image("test.png")
+    ##for i in range(len(new)):
+        #new[i].write_image(f"test{i+1}.png")
 
 if __name__ == "__main__":
     main()
