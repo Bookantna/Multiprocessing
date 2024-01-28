@@ -46,11 +46,21 @@ def main():
     et = time.perf_counter()
     print(f"Used time Thread:{et-st}.")
     '''
-    lake = Image(filename="lake.png")
-    new = parse_image(lake, guassian_blur,1)
-    new.write_image("test.png")
-    ##for i in range(len(new)):
+    #lake = Image(filename="lake.png")
+    #new = parse_image(lake, guassian_blur,1)
+    #new.write_image("test.png")
+    #for i in range(len(new)):
         #new[i].write_image(f"test{i+1}.png")
-
+    city = Image(filename="city.png")
+    sobelX_kernel = np.array([[1, 0, -1],
+                             [2, 0, -2],
+                             [1, 0, -1]])
+    sobelY_kernel = np.array([[1, 2, 1],
+                             [0, 0, 0],
+                             [-1, -2, -1]])
+    edgeX_city = edge_detection(city, sobelX_kernel)
+    edgeY_city = edge_detection(city, sobelY_kernel)
+    edge_city = combine_images(edgeX_city,  edgeY_city)
+    edge_city.write_image("Edge_city.png")
 if __name__ == "__main__":
     main()
