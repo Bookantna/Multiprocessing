@@ -51,7 +51,7 @@ def main():
     #new.write_image("test.png")
     #for i in range(len(new)):
         #new[i].write_image(f"test{i+1}.png")
-    city = Image(filename="city.png")
+    city = Image(path="city.png")
     sobelX_kernel = np.array([[1, 0, -1],
                              [2, 0, -2],
                              [1, 0, -1]])
