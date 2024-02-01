@@ -81,7 +81,7 @@ def parse_image(image, func, kernel):
     return new_image
 
 
-def guassian_blur(image, kernel_size):
+def mean_filter(image, kernel_size):
     x_pixels, y_pixels, num_channels = image.array.shape
     neighbor_range = kernel_size // 2
     new_image = Image(x_pixels=x_pixels, y_pixels=y_pixels, num_channels=num_channels)
@@ -124,6 +124,29 @@ def edge_detection(image, kernel):
                 new_image.array[x, y]  = total
     return new_image
 
+def gaussian_blur(image, kernel_size, sigma=1.0):
+    x_pixels, y_pixels, num_channels = image.array.shape
+    new_image = Image(x_pixels=x_pixels, y_pixels=y_pixels, num_channels=num_channels)  
+
+    kernel = np.fromfunction(
+        lambda x, y: (1/(2*np.pi*sigma**2)) * np.exp(-((x - (kernel_size-1)/2)**2 + (y - (kernel_size-1)/2)**2) / (2*sigma**2)),
+        (kernel_size, kernel_size)
+    )
+    neighbor_range = kernel_size//2
+    kernel = kernel / np.sum(kernel)
+    for x in range(x_pixels):
+        for y in range(y_pixels):
+            for c in range(num_channels):
+                region = 0
+                for x_i in range(max(0, x-neighbor_range), min(x_pixels-1, x+neighbor_range)+1):
+                    for y_i in range(max(0, y-neighbor_range), min(y_pixels-1, y+neighbor_range)+1):
+                        x_k = x_i + neighbor_range - x
+                        y_k = y_i + neighbor_range - y
+                        kernel_val = kernel[x_k, y_k]
+                        region += image.array[x_i, y_i, c] * kernel_val
+                new_image.array[x, y, c] = region
+    return new_image
+        
 
 
 
