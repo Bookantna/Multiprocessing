@@ -71,6 +71,31 @@ def main():
     guassian_blur_city = gaussian_blur(city, 5,sigma=15)
     guassian_blur_city.write_image("guassian_blur_city15.png")
 
+    '''city = Image(filename= 'city.png')
 
+   
+    kernel_size = 3
+
+    
+    median_filtered_city = median_filter(city, kernel_size)
+
+   
+    sobelX_kernel = np.array([[1, 0, -1],
+                              [2, 0, -2],
+                              [1, 0, -1]])
+
+    sobelY_kernel = np.array([[1, 2, 1],
+                              [0, 0, 0],
+                              [-1, -2, -1]])
+
+    
+    median_filteredx_city = median_filter(median_filtered_city, sobelX_kernel)
+    median_filteredy_city = median_filter(median_filtered_city, sobelY_kernel)
+
+
+    combined_image = combine_images(median_filteredx_city, median_filteredy_city)
+
+    
+    combined_image.save("city_median.png")มันเจอErrorอะในmain''' 
 if __name__ == "__main__":
     main()
