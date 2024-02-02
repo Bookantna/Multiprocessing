@@ -1,7 +1,9 @@
 import concurrent.futures as cf
 import time 
 from transform_M import *
-
+'''from image import Image 
+from skimage import io, color
+from PIL import Image'''
 def main():
     
     '''
@@ -71,6 +73,17 @@ def main():
     guassian_blur_city = gaussian_blur(city, 5,sigma=15)
     guassian_blur_city.write_image("guassian_blur_city15.png")
 
+    ''' image_path = 'city.png'
+    img = io.imread(image_path)
 
+
+    kernel_size = 5
+    filtered_img_color = median_filter_custom_color(img, kernel_size)
+
+
+    output_image = Image.fromarray(filtered_img_color.astype(np.uint8))
+
+    output_filename = 'median_filtered_city.png'
+    output_image.save(output_filename)'''
 if __name__ == "__main__":
     main()
