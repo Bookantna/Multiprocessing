@@ -146,7 +146,20 @@ def gaussian_blur(image, kernel_size, sigma=1.0):
                         region += image.array[x_i, y_i, c] * kernel_val
                 new_image.array[x, y, c] = region
     return new_image
-        
+        ''' def median_filter_custom_color(image, kernel_size):
+    pad_width = kernel_size // 2
+    padded_image = np.pad(image, ((pad_width, pad_width), (pad_width, pad_width), (0, 0)), mode='constant', constant_values=0)
+    
+    new_image = np.zeros_like(image)
+    
+    for i in range(new_image.shape[0]):
+        for j in range(new_image.shape[1]):
+            for k in range(new_image.shape[2]):
+                region = padded_image[i:i+kernel_size, j:j+kernel_size, k]
+                median_value = np.median(region)
+                new_image[i, j, k] = median_value
+                
+    return new_image'''
 
 
 
