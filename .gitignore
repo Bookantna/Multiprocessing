@@ -131,3 +131,6 @@ dmypy.json
 # VScode
 .DS_Store
 */.DS_Store
+
+# main
+main.py

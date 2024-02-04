@@ -51,8 +51,7 @@ def main():
     #new.write_image("test.png")
     #for i in range(len(new)):
         #new[i].write_image(f"test{i+1}.png")
-    city = Image(path="city.png")
-    apple = Image(path="apple.png")
+    city = Image(path="city_1920x1080_by_Pedro_lastra.png")
 
     sobelX_kernel = np.array([[1, 0, -1],
                              [2, 0, -2],
@@ -65,12 +64,13 @@ def main():
     edgeY_city = edge_detection(city, sobelY_kernel)
     edge_city = combine_images(edgeX_city,  edgeY_city)
     edge_city.write_image("Edge_city.png")
-    '''
+    
     guassian_blur_city = gaussian_blur(city, 5,sigma=3)
     guassian_blur_city.write_image("guassian_blur_city3.png")
     guassian_blur_city = gaussian_blur(city, 5,sigma=15)
     guassian_blur_city.write_image("guassian_blur_city15.png")
-
-
+    '''
+    mean_city = edge_detection(city,sobelX_kernel)
+    mean_city.write_image("mean.png")
 if __name__ == "__main__":
     main()

@@ -103,6 +103,14 @@ def edge_detection(image, kernel):
     # [1 0 -1]
     # [2 0 -2]
     # [1 0 -1]
+    if kernel.lower() == 'y':
+        kernel = np.array([[1, 2, 1],
+                             [0, 0, 0],
+                             [-1, -2, -1]])
+    elif kernel.lower() == 'x':
+        kernel = np.array([[1, 0, -1],
+                             [2, 0, -2],
+                             [1, 0, -1]])
 
     x_pixels, y_pixels, num_channels = image.array.shape
     new_image = Image(x_pixels=x_pixels, y_pixels=y_pixels, num_channels=num_channels)  
@@ -124,7 +132,7 @@ def edge_detection(image, kernel):
                 new_image.array[x, y]  = total
     return new_image
 
-def gaussian_blur(image, kernel_size, sigma=1.0):
+def gaussian_blur(image, kernel_size, sigma=3.0):
     x_pixels, y_pixels, num_channels = image.array.shape
     new_image = Image(x_pixels=x_pixels, y_pixels=y_pixels, num_channels=num_channels)  
 
