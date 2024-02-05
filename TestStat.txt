@@ -1,3 +1,5 @@
+
+
 Current number of pictures: 1
 Performance time(Guassian blur):46.411950599984266
 Performance time(Mean filter):29.003692199941725
@@ -23,3 +25,19 @@ Performance time(Guassian blur):597.4572502999799
 Performance time(Mean filter):384.03278390003834
 Performance time(Edge detection):668.3728667999385
 Batch script completed.
+
+Start testing Normal filtering
+Current number of pictures: 1 
+Performance time(Guassian blur):42.63858579999942
+Performance time(Mean filter):27.048212399997283
+Performance time(Edge detection):48.55958610000016
+
+Current number of pictures: 5
+Performance time(Guassian blur):213.31947810000202
+Performance time(Mean filter):165.48642159999872
+Performance time(Edge detection):238.48968259999674
+
+Current number of pictures: 25
+Performance time(Guassian blur):1454.7226388999989
+Performance time(Mean filter):1116.4171692000018
+Performance time(Edge detection):2135.124433699999

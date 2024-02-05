@@ -1,12 +1,41 @@
-# PyPhotoshop
-Python implementation of image filters
+# Multiprocessing Image Filtering
 
-Use Python to adjust brightness and contrast, add blur, and detect edges! Follow along tutorial: https://youtu.be/4ifdUQmZqhM
+This research project aims to investigate the potential performance improvements achieved by employing multiprocessing compared to sequential execution in image filtering processes.
 
-In order to download this code, either click the green button at the top right and download as ZIP, or use `git clone https://github.com/kying18/pyphotoshop.git`. You will need to `pip install -r requirements.txt` (or use `pip3` if you are getting a module not found error).
 
-In the folder, you will find these files:
-- image.py: contains the `Image` class that will read and write the images using the PNG `Writer` and `Reader`
-- png.py: pure Python PNG `Reader` and `Writer` classes from Johann C. Rocholl
-- transform.py: implemented image filter functions
-- transform_empty.py: empty template for image filter functions
+This project involves testing three filters:
+
+- Gaussian blur
+- Mean filter (Box Blur)
+- Edge detection
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Bookantna/Multiprocessing
+```
+
+Go to the project directory
+
+```bash
+  cd Multiprocessing
+```
+
+Install requirements
+
+```bash
+  pip install -r requirements.txt
+```
+
+
+
+## Authors
+
+- [@Bookantna](https://github.com/Bookantna)
+- [@pnang16-8](https://github.com/pnang16-8)
+
+Code adapted from [pyphotoshop](https://github.com/kying18/pyphotoshop).\
+Original code by [kying18](https://github.com/kying18).

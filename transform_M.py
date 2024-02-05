@@ -86,7 +86,7 @@ def mean_filter(image, kernel_size):
     neighbor_range = kernel_size // 2
     new_image = Image(x_pixels=x_pixels, y_pixels=y_pixels, num_channels=num_channels)
     
-    for x in tqdm(np.arange(x_pixels), desc="Processing", position=0, leave=True):
+    for x in range(x_pixels):
         for y in range(y_pixels):
             for c in range(num_channels):
                 total = 0
