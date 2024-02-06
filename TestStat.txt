@@ -41,3 +41,12 @@ Current number of pictures: 25
 Performance time(Guassian blur):1454.7226388999989
 Performance time(Mean filter):1116.4171692000018
 Performance time(Edge detection):2135.124433699999
+
+Current number of pictures: 50
+Performance time(Gaussian blur): 2114.904134199998
+Performance time(Mean filter): 1287.8778902999984
+Performance time(Edge detection): 3105.5382608
+
+Performance time(Gaussian blur): 4537.751602799995
+Performance time(Mean filter): 2607.187493499994
+Performance time(Edge detection): 4828.581241500004
