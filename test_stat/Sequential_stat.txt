@@ -1,5 +1,5 @@
 
-
+Sequential test
 Current number of pictures: 1
 Performance time(Guassian blur):46.411950599984266
 Performance time(Mean filter):29.003692199941725

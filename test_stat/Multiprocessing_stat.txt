@@ -1,0 +1,27 @@
+Start testing multiprocessing filtering
+
+Current number of pictures: 1
+Performance time(Guassian blur):46.411950599984266
+Performance time(Mean filter):29.003692199941725
+Performance time(Edge detection):51.53043719998095
+
+Current number of pictures: 5
+Performance time(Guassian blur):51.05440310004633
+Performance time(Mean filter):31.706099500064738
+Performance time(Edge detection):54.831288899993524
+
+Current number of pictures: 25
+Performance time(Guassian blur):159.58793679997325
+Performance time(Mean filter):103.71742280002218
+Performance time(Edge detection):181.26799409999512
+
+Current number of pictures: 50
+Performance time(Guassian blur):304.30817500001285
+Performance time(Mean filter):196.893313699984
+Performance time(Edge detection):342.6112943000626
+
+Current number of pictures: 100
+Performance time(Guassian blur):597.4572502999799
+Performance time(Mean filter):384.03278390003834
+Performance time(Edge detection):668.3728667999385
+Batch script completed.
