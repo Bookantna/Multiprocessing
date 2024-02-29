@@ -1,0 +1,25 @@
+Start testing GPU filtering
+Current number of pictures: 1
+Performance time(Gaussian blur): 0.45980640000198036
+Performance time(Mean filter): 0.09600760000466835
+Performance time(Edge detection): 1.2474479000011343
+
+Current number of pictures: 5
+Performance time(Gaussian blur): 0.4618105999979889
+Performance time(Mean filter): 0.09628019999945536
+Performance time(Edge detection): 1.2317002000054345
+
+Current number of pictures: 25
+Performance time(Gaussian blur): 0.4654590999998618
+Performance time(Mean filter): 0.1513137000001734
+Performance time(Edge detection): 1.3906543999983114
+
+Current number of pictures: 50
+Performance time(Gaussian blur): 0.46822529999917606
+Performance time(Mean filter): 0.297738199995365
+Performance time(Edge detection): 1.5308272000038414
+
+Current number of pictures: 100
+Performance time(Gaussian blur): 0.4895615999994334
+Performance time(Mean filter): 0.5976547999962349
+Performance time(Edge detection): 1.4348817999998573

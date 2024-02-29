@@ -14,8 +14,7 @@ from image import Image
 import numpy as np
 import concurrent.futures as cf
 from multiprocessing import cpu_count
-from tqdm import tqdm
-import psutil
+
 
 
 def brighten(image, factor):
