@@ -15,8 +15,6 @@ def main():
         # Start timer
         st = time.perf_counter()
         city_gaussian_blur = list(executor.map(gaussian_blur, city, kernel_size))
-        for i in city_gaussian_blur:
-            i.write_image("test.png")
         # End timer
         et = time.perf_counter()
         print(f"Performance time(Guassian blur):{et-st}")
@@ -24,16 +22,16 @@ def main():
         #city_MeanFilter(Box blur)
         # Start timer
         st = time.perf_counter()
-        #city_mean_filter = list(executor.map(mean_filter, city, kernel_size))
+        city_mean_filter = list(executor.map(mean_filter, city, kernel_size))
         # End timer
-        #et = time.perf_counter()
+        et = time.perf_counter()
         print(f"Performance time(Mean filter):{et-st}")
 
         # city_Edge dectection 
         st = time.perf_counter()
         # Start timer
-        #city_sobelX = list(executor.map(edge_detection, city, ['x']*n))
-        #city_sobelY = list(executor.map(edge_detection, city, ['y']*n))
+        city_sobelX = list(executor.map(edge_detection, city, ['x']*n))
+        city_sobelY = list(executor.map(edge_detection, city, ['y']*n))
         # End timer
         et = time.perf_counter()
         print(f"Performance time(Edge detection):{et-st}")
