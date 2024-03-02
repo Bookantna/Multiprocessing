@@ -14,23 +14,28 @@ def main():
     img = tf.io.decode_image(img_raw)
 
     city = [tf.image.convert_image_dtype(img, tf.float32)]*n
-    
+    # Start timer
     st = time.perf_counter()
     [gaussian_blur(img, size) for img, size in zip(city, kernel_size)]
+    # End timer
     et = time.perf_counter()
     print(f"Performance time(Gaussian blur): {et - st}")
 
     # city_MeanFilter(Box blur)
+    # Start timer
     st = time.perf_counter()
     [mean_filter(img, size) for img, size in zip(city, kernel_size)]
+    # End timer
     et = time.perf_counter()
     print(f"Performance time(Mean filter): {et - st}")
 
     # city_Edge detection 
+    # Start timer
     st = time.perf_counter()
 
     [edge_detection(img) for img in city]
     
+    # End timer
     et = time.perf_counter()
     print(f"Performance time(Edge detection): {et - st}")
 
